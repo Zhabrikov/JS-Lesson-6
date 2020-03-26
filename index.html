@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        
+        <div class="calculator">
+            <input type="text" class="grid-col-6 outputLocationMini" id="outputLocationMini" readonly>
+            <input type="text" class="grid-col-6 outputLocation" id="outputLocation" value="0" readonly>
+            <div class="calculator_buttons">
+                <button class="grid-col-2 buttons">Clear</button>
+                <button class="grid-col-2 buttons">Back</button>
+                <button class="buttons" id="history">H</button>
+                <div class="radDeg">
+                    <input type="radio" id="radioButton1" name="contact" checked>
+                    <label for="radioButton1">Rad</label>
+                </div>
+                <div class="radDeg">
+                    <input type="radio" id="radioButton2" name="contact">
+                    <label for="radioButton1">Deg</label>
+                </div>
+                <button class="buttons">Sqrt</button>
+                <button class="buttons">!</button>
+                <button class="buttons">^</button>
+                <button class="buttons">Sin</button>
+                <button class="buttons">Cos</button>
+                <button class="buttons">Tan</button>
+                <button class="buttons">Ctg</button>
+                <button class="buttons">%</button>                
+                <button class="buttons">7</button>
+                <button class="buttons">8</button>
+                <button class="buttons">9</button>
+                <button class="buttons">*</button>
+                <button class="buttons">/</button>
+                <button class="buttons">4</button>
+                <button class="buttons">5</button>
+                <button class="buttons">6</button>
+                <button class="buttons">+</button>
+                <button class="buttons">-</button>
+                <button class="buttons">1</button>
+                <button class="buttons">2</button>
+                <button class="buttons">3</button>
+                <button class="buttons">+-</button>
+                <button class="buttons">0</button>
+                <button class="buttons">.</button>
+                <button class="grid-col-2-2 buttons">=</button>
+            </div>
+            
+        </div>
+        <div id="text"></div>
+    </div>
+    
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
