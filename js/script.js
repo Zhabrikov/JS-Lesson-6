@@ -30,6 +30,14 @@ factorial = (n) => {
     return n ? n * factorial(n - 1) : 1;
 }
 
+historyСheck = () => {
+    if (history.length > 2){
+        history.shift();
+    }   
+    text.innerHTML = "";
+    сlearHistory = false;    
+}
+
 var operations = {
     '+': (variable1, variable2) => (variable1 * 10 + variable2 * 10) / 10,  
     '-': (variable1, variable2) => (variable1 * 10 - variable2 * 10) / 10,    
@@ -121,46 +129,35 @@ makeOperation = (operationCode) => {
                     outputLocation.value = operations[operation](Number(variable1), Number(variable2)); 
                     if (operation == '/' && variable2 == 0){
                         outputLocation.value = "Деление на 0";
-                    }   
-                    if (history.length > 2){
-                        history.shift();
                     }                
                     history.push(outputLocationMini.value + ' ' + variable2 + ' = ' + outputLocation.value);    
-                    text.innerHTML = "";
-                    сlearHistory = false;                             
+                    historyСheck();                        
                     break; 
                  
                 case "Sin":
                 case "Cos":
                 case "Tan":
-                case "Ctg":       
-                // outputLocation.value = operations[operation](Number(variable1), Number(variable2));          
+                case "Ctg":               
                     if (radChecked.checked === true){
                         outputLocation.value = operations[operation](Number(variable1)).toFixed(4);      
                     } else {
                         outputLocation.value = operations[operation](Number(variable1)*Math.PI/180).toFixed(4); 
                     }
-                    if (history.length > 2){
-                        history.shift();
-                    }                
+                     
                     history.push(operation + " " + variable1 + ' = ' + outputLocation.value);  
-                    text.innerHTML = "";
-                    сlearHistory = false;     
+                    historyСheck();  
                     break; 
                 case "Sqrt": 
-                    outputLocation.value = operations[operation](Number(variable1));
-                    history.push(operation + " " + variable1 + ' = ' + outputLocation.value);  
-                    text.innerHTML = "";
-                    сlearHistory = false;     
+                    outputLocation.value = operations[operation](Number(variable1)).toFixed(6);
+                      
+                    history.push(operation + " " + variable1 + ' = ' + outputLocation.value); 
+                    historyСheck(); 
                     break; 
                 case "!":
                     outputLocation.value = factorial(Number(variable1));                    
-                    if (history.length > 2){
-                        history.shift();
-                    }                
+                                  
                     history.push(operation + variable1 + ' = ' + outputLocation.value);  
-                    text.innerHTML = "";
-                    сlearHistory = false;  
+                    historyСheck();  
                     break;    
             }
             outputLocationMini.value = "";
