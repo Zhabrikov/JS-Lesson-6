@@ -129,9 +129,10 @@ makeOperation = (operationCode) => {
                     outputLocation.value = operations[operation](Number(variable1), Number(variable2)); 
                     if (operation == '/' && variable2 == 0){
                         outputLocation.value = "Деление на 0";
-                    }                
+                    }  
+                    historyСheck();              
                     history.push(outputLocationMini.value + ' ' + variable2 + ' = ' + outputLocation.value);    
-                    historyСheck();                        
+                                            
                     break; 
                  
                 case "Sin":
@@ -143,21 +144,21 @@ makeOperation = (operationCode) => {
                     } else {
                         outputLocation.value = operations[operation](Number(variable1)*Math.PI/180).toFixed(4); 
                     }
-                     
+                    historyСheck();
                     history.push(operation + " " + variable1 + ' = ' + outputLocation.value);  
-                    historyСheck();  
+                      
                     break; 
                 case "Sqrt": 
                     outputLocation.value = operations[operation](Number(variable1)).toFixed(6);
-                      
-                    history.push(operation + " " + variable1 + ' = ' + outputLocation.value); 
                     historyСheck(); 
+                    history.push(operation + " " + variable1 + ' = ' + outputLocation.value); 
+                     
                     break; 
                 case "!":
                     outputLocation.value = factorial(Number(variable1));                    
-                                  
+                    historyСheck();             
                     history.push(operation + variable1 + ' = ' + outputLocation.value);  
-                    historyСheck();  
+                     
                     break;    
             }
             outputLocationMini.value = "";
@@ -173,6 +174,7 @@ makeOperation = (operationCode) => {
             outputLocation.value += operationCode;
             break;
     }
+    console.log(history);
 }
 
 onOperationButtonClick = (event) => makeOperation(event.currentTarget.innerHTML);
